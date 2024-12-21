@@ -1,4 +1,6 @@
 import React from "react";
+import propTypes from "prop-types"
+
 
 export default function Navbar(props) {
   return (
@@ -47,3 +49,13 @@ export default function Navbar(props) {
     </nav>
   );
 }
+
+Navbar.protoTypes={
+  title:propTypes.string.isRequired,
+  aboutText:propTypes.string.isRequired,
+}
+
+Navbar.defaultProps = {
+  title: 'Set title here',
+  aboutText: 'About US'
+};
