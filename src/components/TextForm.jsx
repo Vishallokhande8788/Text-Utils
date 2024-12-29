@@ -23,7 +23,6 @@ export default function TextForm(props) {
 
   const handelOnChange = (event) => {
     setText(event.target.value);
-    props.showAlert("success", "Remove Extra Spaces");
   };
   const handelCopy = () => {
     let text = document.getElementById("myBox");
@@ -34,6 +33,8 @@ export default function TextForm(props) {
   const handelExtraSpaces = () => {
     let newText = Text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("success", "Remove Extra Spaces");
+
   };
 
   return (
@@ -65,7 +66,7 @@ export default function TextForm(props) {
           Convert To Lowercase{" "}
         </button>
         <button className="btn btn-warning mx-2" onClick={handelExtraSpaces}>
-          Remove Extra Spaces
+          Remove extra space
         </button>
         <button className=" btn btn-warning mx-2" onClick={handelClearClick}>
           {" "}
