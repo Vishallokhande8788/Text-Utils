@@ -28,6 +28,7 @@ export default function TextForm(props) {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("success", "Text Copied to Clipboard !");
   };
   const handelExtraSpaces = () => {
@@ -58,21 +59,21 @@ export default function TextForm(props) {
           ></textarea>
         </div>
 
-        <button className="btn btn-warning me-2 my-2" onClick={handelUpClick}>
+        <button disabled={Text.length===0} className="btn btn-warning me-2 my-2" onClick={handelUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-warning mx-2 my-2" onClick={handelLoClick}>
+        <button disabled={Text.length===0} className="btn btn-warning mx-2 my-2" onClick={handelLoClick}>
           {" "}
           Convert To Lowercase{" "}
         </button>
-        <button className="btn btn-warning mx-2 my-2" onClick={handelExtraSpaces}>
+        <button disabled={Text.length===0} className="btn btn-warning mx-2 my-2" onClick={handelExtraSpaces}>
           Remove extra space
         </button>
-        <button className=" btn btn-warning mx-2 my-2" onClick={handelClearClick}>
+        <button disabled={Text.length===0} className=" btn btn-warning mx-2 my-2" onClick={handelClearClick}>
           {" "}
           Clear Text
         </button>
-        <button className="btn btn-warning mx-2 my-2" onClick={handelCopy}>
+        <button disabled={Text.length===0} className="btn btn-warning mx-2 my-2" onClick={handelCopy}>
           Copy Text
         </button>
       </div>
@@ -85,12 +86,12 @@ export default function TextForm(props) {
         <p>
           {Text.split(" ").filter((element)=>{return element.length !==0}).length} Words , {Text.length} Characters
         </p>
-        <p>{0.008 * Text.split(" ").length-0.008}</p>
+        <p>{0.008 * Text.split(" ").filter((element)=>{return element.length !==0}).length}</p>
         <h2>Preview</h2>
         <p>
           {Text.length > 0
             ? Text
-            : "Enter something in the text box above to preview it here"}
+            : "Nothing to preview"}
         </p>
       </div>
     </>

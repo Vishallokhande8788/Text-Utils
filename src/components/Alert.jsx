@@ -6,8 +6,10 @@ function Alert (props){
   return lower.charAt(0).toUpperCase() + lower.slice(1);
  }
   return (
-    props.alert &&
-    <div>
+    <div style={{height:'40px'}}>
+
+   { props.alert &&
+      <div>
       <div
         className={ `alert alert-primary alert-dismissible fade show`}
         role="alert"
@@ -22,6 +24,8 @@ function Alert (props){
         >
         </button>
       </div>
+    </div>
+    }
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Import useState only once from React
+import React, { useState } from "react"; 
 
 const ContactUs = (props) => {
   const [formData, setFormData] = useState({
@@ -11,12 +11,12 @@ const ContactUs = (props) => {
   // Define dynamic styles based on mode
   let myStyle = {
     color: props.mode === "dark" ? "white" : "black",
-    backgroundColor: props.mode === "dark" ? "gray" : "white", // Darker background for dark mode
+    backgroundColor: props.mode === "dark" ? "gray" : "white", 
     padding: "20px",
     maxWidth: "500px",
     margin: "0 auto",
     borderRadius: "8px", 
-    boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", // Add shadow for depth
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
     
       
   };
@@ -29,7 +29,7 @@ const ContactUs = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Your message has been submitted!");
-    setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
+    setFormData({ name: "", email: "", subject: "", message: "" }); 
   };
 
   return (
@@ -91,12 +91,11 @@ const ContactUs = (props) => {
   );
 };
 
-// Input and button styles
 const inputStyles = {
   width: "100%",
   padding: "12px",
   marginTop: "5px",
-  borderRadius: "4px", // Rounded input fields
+  borderRadius: "4px", 
   border: "1px solid #ccc",
   boxSizing: "border-box",
   transition: "all 0.3s ease",
@@ -107,7 +106,7 @@ const textareaStyles = {
   padding: "12px",
   marginTop: "5px",
   height: "100px",
-  borderRadius: "4px", // Rounded text area
+  borderRadius: "4px", 
   border: "1px solid #ccc",
   boxSizing: "border-box",
   transition: "all 0.3s ease",
@@ -119,7 +118,7 @@ const buttonStyles = {
   backgroundColor: "#007bff",
   color: "white",
   border: "none",
-  borderRadius: "4px", // Rounded button
+  borderRadius: "4px",
   cursor: "pointer",
   fontSize: "16px",
   transition: "all 0.3s ease",
