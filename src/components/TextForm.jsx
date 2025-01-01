@@ -41,7 +41,7 @@ export default function TextForm(props) {
     <>
       <div
         className="container"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{ color: props.mode === "light" ? "white" : "black" }}
       >
         <h1>{props.heading}</h1>
         <div className="mb-3">
@@ -58,34 +58,34 @@ export default function TextForm(props) {
           ></textarea>
         </div>
 
-        <button className="btn btn-warning me-2" onClick={handelUpClick}>
+        <button className="btn btn-warning me-2 my-2" onClick={handelUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-warning mx-2" onClick={handelLoClick}>
+        <button className="btn btn-warning mx-2 my-2" onClick={handelLoClick}>
           {" "}
           Convert To Lowercase{" "}
         </button>
-        <button className="btn btn-warning mx-2" onClick={handelExtraSpaces}>
+        <button className="btn btn-warning mx-2 my-2" onClick={handelExtraSpaces}>
           Remove extra space
         </button>
-        <button className=" btn btn-warning mx-2" onClick={handelClearClick}>
+        <button className=" btn btn-warning mx-2 my-2" onClick={handelClearClick}>
           {" "}
           Clear Text
         </button>
-        <button className="btn btn-warning mx-2" onClick={handelCopy}>
+        <button className="btn btn-warning mx-2 my-2" onClick={handelCopy}>
           Copy Text
         </button>
       </div>
 
       <div
         className="cotainer my-3"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{ color: props.mode === "light" ? "white" : "black" }}
       >
         <h2>Your Text Summary </h2>
         <p>
-          {Text.split(" ").length - 1} Words , {Text.length} Characters
+          {Text.split(" ").filter((element)=>{return element.length !==0}).length} Words , {Text.length} Characters
         </p>
-        <p>{0.008 * Text.split(" ").length}</p>
+        <p>{0.008 * Text.split(" ").length-0.008}</p>
         <h2>Preview</h2>
         <p>
           {Text.length > 0

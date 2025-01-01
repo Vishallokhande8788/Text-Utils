@@ -33,6 +33,11 @@ export default function Navbar(props) {
                 {props.aboutText}
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">
+                Contact Us
+              </Link>
+            </li>
           </ul>
           <div
             className={`form-check form-switch text-${
@@ -64,7 +69,3 @@ Navbar.protoTypes = {
   aboutText: propTypes.string.isRequired,
 };
 
-// Navbar.defaultProps = {
-//   title: "Set title here",
-//   aboutText: "About US",
-// };

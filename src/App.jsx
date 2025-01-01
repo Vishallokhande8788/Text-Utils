@@ -5,9 +5,10 @@ import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 import About from "./components/About";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Contact from "./components/Contact"; 
 
 function App() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
 
   const [alert, setAlert] = useState(null);
 
@@ -22,12 +23,12 @@ function App() {
   };
 
   const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
+    if (mode === "dark") {
+      setMode("light");
       document.body.style.backgroundColor = "#055052";
       showAlert("success", "Dark mode has been enabled");
     } else {
-      setMode("light");
+      setMode("dark");
       document.body.style.backgroundColor = "#FFEDF5";
       showAlert("success", "Light mode has been enabled");
     }
@@ -46,7 +47,7 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode} />} /> 
             <Route
               exact
               path="/"
@@ -60,6 +61,9 @@ function App() {
             />
           </Routes>
         </div>
+<Routes>
+  <Route path="/contact" element={<Contact mode={mode} />} />  
+</Routes>
       </Router>
     </>
   );
