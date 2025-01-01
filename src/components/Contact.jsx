@@ -8,7 +8,8 @@ const ContactUs = (props) => {
     message: "",
   });
 
-  // Define dynamic styles based on mode
+  const [showAlert, setShowAlert] = useState(false); // Track alert visibility
+
   let myStyle = {
     color: props.mode === "dark" ? "white" : "black",
     backgroundColor: props.mode === "dark" ? "gray" : "white", 
@@ -17,8 +18,6 @@ const ContactUs = (props) => {
     margin: "0 auto",
     borderRadius: "8px", 
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
-    
-      
   };
 
   const handleChange = (e) => {
@@ -28,8 +27,10 @@ const ContactUs = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Your message has been submitted!");
+    setShowAlert(true); // Show custom alert
     setFormData({ name: "", email: "", subject: "", message: "" }); 
+
+    setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
   };
 
   return (
@@ -87,6 +88,14 @@ const ContactUs = (props) => {
           Submit
         </button>
       </form>
+
+      {showAlert && (
+        <div style={modalStyles}>
+          <div style={alertContentStyles}>
+            <h4>Your message has been successfully submitted!</h4>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -112,7 +121,6 @@ const textareaStyles = {
   transition: "all 0.3s ease",
 };
 
-// Button styles
 const buttonStyles = {
   padding: "10px 20px",
   backgroundColor: "#007bff",
@@ -122,6 +130,32 @@ const buttonStyles = {
   cursor: "pointer",
   fontSize: "16px",
   transition: "all 0.3s ease",
+};
+
+const modalStyles = {
+  position: "fixed",
+  top: "20px",
+  left: "50%",
+  transform: "translateX(-50%)", 
+  zIndex: "9999", 
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  animation: "fadeInOut 3s ease-in-out",
+};
+
+const alertContentStyles = {
+  backgroundColor: "#28a745", 
+  color: "white",
+  padding: "20px 30px",
+  borderRadius: "8px",
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+  fontSize: "14px",
+  textAlign: "center",
+  fontWeight: "bold",
+  width: "auto",
+  maxWidth: "800px",
+  animation: "fadeInOut 3s ease-in-out",
 };
 
 export default ContactUs;
