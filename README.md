@@ -88,10 +88,10 @@ The following dependencies are used in this project:
 ## Screenshots
 
 ### Light Mode:
-![Light Mode Screenshot](public/darkmode.png)
+![Light Mode Screenshot](public/lightmode.png)
 
 ### Dark Mode:
-![Dark Mode Screenshot](public/lightmode.png)
+![Dark Mode Screenshot](public/darkmode.png)
 
 ---
 
